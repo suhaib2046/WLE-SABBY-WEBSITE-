@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export default function WLE8SabbyLanding() { const ytChannel = "YOUR_YOUTUBE_LINK"; // replace with your channel URL const videos = [ "VIDEO_ID_1", "VIDEO_ID_2", "VIDEO_ID_3" ]; // replace with your YouTube video IDs
+export default function WLE8SabbyLanding() { const ytChannel = "https://youtube.com/@joblessbros"; // replace with your channel URL const videos = [ "VIDEO_ID_1", "VIDEO_ID_2", "VIDEO_ID_3" ]; // replace with your YouTube video IDs
 
 return ( <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white font-sans"> <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between"> <div className="flex items-center gap-4"> <img src="/path/to/logo.png" alt="WLE8・SABBY logo" className="h-12 w-12 rounded-md object-cover" /> <div> <h1 className="text-2xl font-extrabold">WLE8・SABBY</h1> <p className="text-sm text-gray-300">Gaming • Laughs • Highlights</p> </div> </div>
 
