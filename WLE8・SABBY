@@ -1,0 +1,129 @@
+// WLE8・SABBY Landing.jsx // Single-file React component for a simple, modern landing page using Tailwind CSS. // How to use: // 1) Paste this file into a React project (e.g. create-react-app or Vite). // 2) Ensure Tailwind CSS is installed and configured in the project. // 3) Replace the placeholders: YOUR_YOUTUBE_LINK, VIDEO_ID_1, VIDEO_ID_2, VIDEO_ID_3, /path/to/logo.png // 4) Export as default and render in your app (e.g. in App.jsx).
+
+import React from "react";
+
+export default function WLE8SabbyLanding() { const ytChannel = "YOUR_YOUTUBE_LINK"; // replace with your channel URL const videos = [ "VIDEO_ID_1", "VIDEO_ID_2", "VIDEO_ID_3" ]; // replace with your YouTube video IDs
+
+return ( <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white font-sans"> <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between"> <div className="flex items-center gap-4"> <img src="/path/to/logo.png" alt="WLE8・SABBY logo" className="h-12 w-12 rounded-md object-cover" /> <div> <h1 className="text-2xl font-extrabold">WLE8・SABBY</h1> <p className="text-sm text-gray-300">Gaming • Laughs • Highlights</p> </div> </div>
+
+<nav className="flex items-center gap-4">
+      <a href="#videos" className="text-sm hover:text-gray-200">Videos</a>
+      <a href="#about" className="text-sm hover:text-gray-200">About</a>
+      <a href="#contact" className="text-sm hover:text-gray-200">Contact</a>
+      <a href={ytChannel} target="_blank" rel="noreferrer" className="ml-4 px-4 py-2 rounded-lg bg-red-600 text-white text-sm font-semibold shadow">Subscribe</a>
+    </nav>
+  </header>
+
+  <main className="max-w-6xl mx-auto px-6">
+    <section className="grid md:grid-cols-2 gap-8 items-center py-12">
+      <div>
+        <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">Welcome to <span className="text-red-500">WLE8・SABBY</span></h2>
+        <p className="mt-4 text-gray-300">Yahan milenge gaming highlights, funny moments aur asli reactions. Naye videos har hafte — subscribe karein aur bell dabayein!</p>
+
+        <div className="mt-6 flex gap-3">
+          <a href={ytChannel} target="_blank" rel="noreferrer" className="px-5 py-3 bg-red-600 rounded-lg font-semibold shadow">Subscribe on YouTube</a>
+          <a href="#videos" className="px-5 py-3 bg-white/10 rounded-lg font-medium">Latest videos</a>
+        </div>
+
+        <div className="mt-6 flex items-center gap-4 text-sm text-gray-300">
+          <div>
+            <div className="font-bold text-white">204K</div>
+            <div className="text-gray-400">Subscribers</div>
+          </div>
+          <div>
+            <div className="font-bold text-white">1.2M</div>
+            <div className="text-gray-400">Total Views</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-xl overflow-hidden shadow-lg bg-black/40 p-4">
+        <div className="w-full h-64 bg-black flex items-center justify-center text-gray-400">Hero video or image (replace with your own)</div>
+        <div className="mt-4 text-sm text-gray-300">Pro tip: Add a short montage or your best clip here to hook visitors.</div>
+      </div>
+    </section>
+
+    <section id="videos" className="py-8">
+      <h3 className="text-2xl font-bold mb-4">Latest Videos</h3>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {videos.map((id, idx) => (
+          <div key={idx} className="bg-black/40 rounded-lg overflow-hidden shadow">
+            <div className="relative pb-[56.25%]">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${id}`}
+                title={`video-${idx}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="p-4">
+              <h4 className="font-semibold">Video Title {idx + 1}</h4>
+              <p className="text-sm text-gray-400 mt-2">Short description or highlight from the clip.</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section id="about" className="py-12">
+      <div className="bg-black/30 rounded-xl p-6 shadow">
+        <h3 className="text-2xl font-bold">About WLE8・SABBY</h3>
+        <p className="mt-3 text-gray-300">Hum do doston ka gaming channel hai — mazaak, high-skill plays aur unplanned moments. Goal: entertain karna aur gaming community se judna.</p>
+
+        <div className="mt-4 grid sm:grid-cols-2 gap-4">
+          <div>
+            <h5 className="font-semibold">Streaming</h5>
+            <p className="text-sm text-gray-400">Weekly live streams with giveaways.</p>
+          </div>
+          <div>
+            <h5 className="font-semibold">Collaborations</h5>
+            <p className="text-sm text-gray-400">Open for collabs and shoutouts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" className="py-12">
+      <h3 className="text-2xl font-bold mb-4">Contact</h3>
+      <div className="grid md:grid-cols-2 gap-6 items-start">
+        <form className="bg-black/30 rounded-xl p-6 shadow">
+          <label className="block text-sm text-gray-300">Name</label>
+          <input className="mt-1 w-full rounded-md bg-black/60 p-2 text-white" placeholder="Aapka naam" />
+
+          <label className="block text-sm text-gray-300 mt-4">Email</label>
+          <input className="mt-1 w-full rounded-md bg-black/60 p-2 text-white" placeholder="email@example.com" />
+
+          <label className="block text-sm text-gray-300 mt-4">Message</label>
+          <textarea className="mt-1 w-full rounded-md bg-black/60 p-2 text-white" rows={4} placeholder="Kuch likho..." />
+
+          <div className="mt-4">
+            <button type="button" className="px-4 py-2 rounded-lg bg-red-600 font-semibold">Send</button>
+          </div>
+        </form>
+
+        <div className="bg-black/30 rounded-xl p-6 shadow">
+          <h4 className="font-semibold">Business & Collabs</h4>
+          <p className="text-sm text-gray-400 mt-2">Email: <a href="mailto:wle8sabby@example.com" className="text-gray-200">wle8sabby@example.com</a></p>
+
+          <div className="mt-6">
+            <h5 className="font-semibold">Socials</h5>
+            <div className="mt-2 flex gap-3">
+              <a href={ytChannel} target="_blank" rel="noreferrer" className="text-sm underline">YouTube</a>
+              <a href="#" className="text-sm underline">Instagram</a>
+              <a href="#" className="text-sm underline">Twitter/X</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer className="mt-12 py-6 border-t border-gray-800">
+    <div className="max-w-6xl mx-auto px-6 text-center text-sm text-gray-400">© {new Date().getFullYear()} WLE8・SABBY — Built with ❤️</div>
+  </footer>
+</div>
+
+); }
+
